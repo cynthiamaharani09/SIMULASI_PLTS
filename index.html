@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Efisiensi PLTS (Studi Kasus Jurnal)</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script src="perhitungan.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>Simulasi Efisiensi PLTS</h1>
+        <p class="subtitle">
+          Berdasarkan Jurnal "Analisis Efisiensi Sistem Pembangkit Listrik Tenaga
+          Surya" (Rifaldi, dkk., 2023)
+        </p>
+      </header>
+
+      <main class="main-content">
+        <div class="simulation-section">
+          <div class="simulation-header">
+            <h2>Simulasi Visual Sistem</h2>
+          </div>
+          <div class="canvas-container">
+            <div id="simulation-canvas"></div>
+          </div>
+        </div>
+
+        <div class="data-wrapper">
+          <div class="input-grid">
+            <div class="input-box">
+              <h4>Panel Surya (DC)</h4>
+              <div class="form-group">
+                <label for="tegangan_panel_v">Tegangan Panel (V):</label>
+                <input
+                  type="number"
+                  id="tegangan_panel_v"
+                  class="form-control"
+                  value="14.86"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="arus_panel_a">Arus Panel (A):</label>
+                <input
+                  type="number"
+                  id="arus_panel_a"
+                  class="form-control"
+                  value="2.03"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="iradiasi_j">Iradiasi Matahari (W/m²):</label>
+                <input
+                  type="number"
+                  id="iradiasi_j"
+                  class="form-control"
+                  value="1000"
+                  step="0.1"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="luas_panel_a">Luas Panel (m²):</label>
+                <input
+                  type="number"
+                  id="luas_panel_a"
+                  class="form-control"
+                  value="0.3406"
+                  step="0.0001"
+                />
+              </div>
+            </div>
+
+            <div class="input-box">
+              <h4>Inverter</h4>
+              <div class="form-group">
+                <label for="tegangan_inverter_in_v"
+                  >Tegangan Input Inverter (V):</label
+                >
+                <input
+                  type="number"
+                  id="tegangan_inverter_in_v"
+                  class="form-control"
+                  value="13.64"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="arus_inverter_in_a"
+                  >Arus Input Inverter (A):</label
+                >
+                <input
+                  type="number"
+                  id="arus_inverter_in_a"
+                  class="form-control"
+                  value="2.33"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="tegangan_inverter_out_v"
+                  >Tegangan Output Inverter (V):</label
+                >
+                <input
+                  type="number"
+                  id="tegangan_inverter_out_v"
+                  class="form-control"
+                  value="233.5"
+                  step="0.1"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="arus_inverter_out_a"
+                  >Arus Output Inverter (A):</label
+                >
+                <input
+                  type="number"
+                  id="arus_inverter_out_a"
+                  class="form-control"
+                  value="0.11"
+                  step="0.01"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button
+              type="button"
+              onclick="hitungSimulasi()"
+              class="calculate-btn"
+            >
+              🧮 Hitung & Simulasikan
+            </button>
+          </div>
+
+          <div class="output-grid">
+            <div class="output-box">
+              <h3>📊 Hasil Perhitungan & Efisiensi</h3>
+              <div id="output" class="results-container">
+                <div class="placeholder-text">
+                  Hasil perhitungan akan muncul di sini.
+                </div>
+              </div>
+            </div>
+
+            <div class="output-box">
+              <h3>💡 Insight & Interpretasi Hasil</h3>
+              <div id="insight-output" class="insight-container">
+                <div class="placeholder-text">
+                  Interpretasi hasil akan muncul di sini.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="sketch.js"></script>
+    <script src="perhitungan.js"></script>
+  </body>
+</html>
